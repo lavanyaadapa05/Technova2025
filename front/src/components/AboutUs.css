@@ -1,0 +1,15 @@
+/* Custom keyframe animation for a slow spin */
+@keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Tailwind-compatible class for the animation */
+  .animate-spin-slow {
+    animation: spin-slow 8s linear infinite;
+  }
+  
