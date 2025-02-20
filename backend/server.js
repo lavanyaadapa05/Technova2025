@@ -5,11 +5,15 @@ const connectDB = require("./config/db");
 
 const app = express();
 app.use(express.json());
-app.use(cors({ 
-    origin: "http://localhost:5173", 
-    credentials: true, 
-    methods: "GET,POST,PUT,DELETE" 
-  }));
+const cors = require("cors");
+
+app.use(
+    cors({
+        origin: ["http://localhost:5173", "https://technova-b7qy.onrender.com"], // ✅ Add your deployed frontend URL
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        credentials: true,
+    })
+);
 
 // Connect to MongoDB
 connectDB();
