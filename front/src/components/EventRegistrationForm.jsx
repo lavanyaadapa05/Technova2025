@@ -54,7 +54,7 @@ const EventRegistrationForm = ({ eventId, isSingleParticipant, Max_Participants 
       console.log(data);
       
       if (data.message.includes("Users not found")) {
-        setMessage(`Users not found: ${data.message.split(": ")[1]}`);
+        setMessage(` ${data.message.split(": ")[1]} is not registered in our website. Everyone in your Team Must register in our website before enrolling in any Event `);
       } else {
         setMessage(data.message);
       }
