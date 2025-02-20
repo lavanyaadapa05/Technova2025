@@ -23,7 +23,7 @@ const UpdateTeam = () => {
     e.preventDefault();
     showToast("Sending OTP...", "success");
     try {
-      const response = await fetch("http://localhost:5000/api/send-otp", {
+      const response = await fetch("https://technovabackend-wwcs.onrender.com/api/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ leaderEmail: email }), // Fix key here
@@ -41,7 +41,7 @@ const UpdateTeam = () => {
 };
 const fetchTeamDetails = async () => {
     try {
-        const response = await fetch(`http://localhost:5000/api/${eventId}/${email}`);
+        const response = await fetch(`https://technovabackend-wwcs.onrender.com/api/${eventId}/${email}`);
         const data = await response.json();
 
         if (response.ok) {
@@ -72,7 +72,7 @@ const handleOtpSubmit = async (e) => {
     console.log("Verifying OTP request:", requestBody);
 
     try {
-        const response = await fetch("http://localhost:5000/api/verify-otp", {
+        const response = await fetch("https://technovabackend-wwcs.onrender.com/api/verify-otp", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(requestBody),
@@ -109,7 +109,7 @@ const handleAddMember = async () => {
   
       console.log("Sending data:", payload);
   
-      const response = await fetch("http://localhost:5000/api/add-member", {
+      const response = await fetch("https://technovabackend-wwcs.onrender.com/api/add-member", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -134,7 +134,7 @@ const handleAddMember = async () => {
 
   const handleRemoveMember = async (memberEmail) => {
     try {
-      const response = await fetch("http://localhost:5000/api/remove-member", {
+      const response = await fetch("https://technovabackend-wwcs.onrender.com/api/remove-member", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ eventId, leaderEmail: email, memberEmail }),

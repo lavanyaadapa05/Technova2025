@@ -22,7 +22,7 @@ const UpdateUser = () => {
     showToast("Sending OTP...", "success");
 
     try {
-      const response = await fetch("http://localhost:5000/api/users/verify-email", {
+      const response = await fetch("https://technovabackend-wwcs.onrender.com/api/users/verify-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -44,7 +44,7 @@ const UpdateUser = () => {
   const handleOtpSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/users/verify-otp", {
+      const response = await fetch("https://technovabackend-wwcs.onrender.com/api/users/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, otp }),
@@ -74,7 +74,7 @@ const UpdateUser = () => {
   const handleUpdateSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/users/update-user", {
+      const response = await fetch("https://technovabackend-wwcs.onrender.com/api/users/update-user", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

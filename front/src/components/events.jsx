@@ -15,7 +15,7 @@ const BranchEventSelector = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/api/events");
+                const response = await axios.get("https://technovabackend-wwcs.onrender.com/api/events");
                 const eventsData = response.data;
 
                 console.log("Fetched Events Data:", eventsData); // Debugging log
