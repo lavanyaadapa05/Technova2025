@@ -20,7 +20,8 @@ const generateOTP = () => Math.floor(100000 + Math.random() * 900000).toString()
 
 // Store OTP with expiry
 router.post("/send-otp", async (req, res) => {
-    const { leaderEmail } = req.body;
+    let { leaderEmail } = req.body;
+    leaderEmail=leaderEmail.toLowerCase().trim();
     console.log("Received request:", req.body);
     try {
         if (!leaderEmail) return res.status(400).json({ success: false, message: "Leader email is required." });
@@ -55,7 +56,8 @@ router.post("/send-otp", async (req, res) => {
 
 // Verify OTP
 router.post("/verify-otp", async (req, res) => {
-    const { leaderEmail, otp } = req.body;
+    let { leaderEmail, otp } = req.body;
+    leaderEmail=leaderEmail.toLowercase().trim();
     console.log(leaderEmail,otp);
     try {
         const storedOTP = await OTP.findOne({ email: leaderEmail });
@@ -74,7 +76,9 @@ router.post("/verify-otp", async (req, res) => {
 });
 //fetch team details
 router.get("/:eventId/:leaderEmail", async (req, res) => {
-    const { eventId, leaderEmail } = req.params;
+    let { eventId, leaderEmail } = req.params;
+    leaderEmail=leaderEmail.toLowercase().trim();
+
     try {
         console.log(`Fetching team for event ID: ${eventId}, Leader Email: ${leaderEmail}`);
 
@@ -89,8 +93,9 @@ router.get("/:eventId/:leaderEmail", async (req, res) => {
     }
 });
 router.post("/remove-member", async (req, res) => {
-    const { eventId, leaderEmail, memberEmail } = req.body;
-
+    let { eventId, leaderEmail, memberEmail } = req.body;
+    leaderEmail=leaderEmail.toLowercase().trim();
+    memberEmail=memberEmail.toLowerCase().trim();
     try {
         console.log(`Removing member: ${memberEmail} from team (Event ID: ${eventId}, Leader: ${leaderEmail})`);
 
@@ -143,8 +148,9 @@ router.post("/remove-member", async (req, res) => {
 
 //add-member api
 router.post("/add-member", async (req, res) => {
-    const { eventId, leaderEmail, newMemberName, newMemberEmail } = req.body;
-  
+    let { eventId, leaderEmail, newMemberName, newMemberEmail } = req.body;
+    leaderEmail=leaderEmail.toLowercase().trim();
+    newMemberEmail=newMemberEmail.toLowercase().trim();
     try {
       console.log(`Adding member: ${newMemberEmail} to team (Event ID: ${eventId}, Leader: ${leaderEmail})`);
         
@@ -238,7 +244,8 @@ const generateTeamId = async () => {
 router.post("/create-team", async (req, res) => {
     console.log("Received request:", req.body);
     try {
-        const { EventId, teamName, leadName, leadEmail, teamMates } = req.body;
+        let { EventId, teamName, leadName, leadEmail, teamMates } = req.body;
+        leadEmail=leadEmail.toLowerCase().trim();
         const eventid = parseInt(EventId);
 
         // Check if the event exists

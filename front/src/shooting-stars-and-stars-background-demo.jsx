@@ -16,7 +16,7 @@ export default function ShootingStarsAndStarsBackgroundDemo() {
 
       {/* Rectangular Notice Box - "Event Exclusive for Girls" */}
       <div className="absolute top-6 left-1/2 transform -translate-x-1/2 text-white px-8 py-3 rounded-lg shadow-lg text-lg font-semibold tracking-wide border border-fuchsia-300 animate-pulse">
-         Exclusive Event for Girls
+         Only for Girls
       </div>
 
       {/* Main Content Container */}

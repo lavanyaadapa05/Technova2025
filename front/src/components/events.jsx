@@ -57,7 +57,7 @@ const BranchEventSelector = () => {
             ) : (
                 <>
                     {/* Branch Buttons */}
-                    <div className="flex flex-wrap justify-center gap-4 px-4">
+                    <div className="flex flex-wrap justify-center gap-4 px-4 relative z-[50]">
                     {branches.map((branch) => (
     <button
         key={branch.name}
@@ -65,7 +65,7 @@ const BranchEventSelector = () => {
             console.log("Selected Branch:", branch); // Debugging log
             setSelectedBranch(branch);
         }}
-        className={`my-button cursor-pointer px-6 py-3 rounded-lg border border-white text-white transition duration-300 ${
+        className={`my-button cursor-pointer px-6 py-3 rounded-lg border border-white text-white transition duration-300 relative z-[50]${
             selectedBranch?.name === branch.name ? "bg-pink-500" : "bg-transparent hover:bg-gray-700"
         }`}
     >

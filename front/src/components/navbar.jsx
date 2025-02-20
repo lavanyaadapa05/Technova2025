@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'; // Adjust the path as needed
-
+import { useNavigate } from "react-router-dom"; 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
-    <nav className="bg-transparent backdrop-blur-md shadow-lg fixed w-full z-50 border-b border-white transition-all duration-300">
+    <nav className="bg-transparent backdrop-blur-md shadow-lg fixed w-full z-[100] border-b border-white transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo Section */}
@@ -48,25 +49,27 @@ export default function Navbar() {
             ))}
 
             {/* Register Button */}
-            <div className="flex sm:flex-row flex-col sm:space-x-4 space-y-2 sm:space-y-0 mt-4 sm:mt-0">
-              <motion.button
-                className="px-6 py-3 rounded-lg border border-white text-white transition duration-300 bg-transparent hover:bg-gray-700"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => { window.location.href = '/registration'; setIsOpen(false); }}
-              >
-                Register 
-              </motion.button>
-              {/* Update Details Button */}
-              <motion.button
-                className="px-6 py-3 rounded-lg border border-white text-white transition duration-300 bg-transparent hover:bg-gray-700"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => { window.location.href = '/update-user'; setIsOpen(false); }}
-              >
-                Update Details
-              </motion.button>
-            </div>
+            <div className="flex sm:flex-row flex-col sm:space-x-4 space-y-2 sm:space-y-0 mt-4 sm:mt-0 z-[100] relative">
+      {/* Register Button */}
+      <motion.button
+        className="px-6 py-3 rounded-lg border border-white text-white transition duration-300 bg-transparent hover:bg-gray-700 relative"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => { navigate('/registration'); setIsOpen(false); }}
+      >
+        Register
+      </motion.button>
+
+      {/* Update Details Button */}
+      <motion.button
+        className="px-6 py-3 rounded-lg border border-white text-white transition duration-300 bg-transparent hover:bg-gray-700 relative "
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => { navigate('/update-user'); setIsOpen(false); }}
+      >
+        Update Details
+      </motion.button>
+    </div>
           </div>
         </div>
       </div>

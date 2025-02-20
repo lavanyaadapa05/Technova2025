@@ -7,6 +7,7 @@ const router = express.Router();
 
   // Generate a unique team ID based on the number of teams already registered
 const generateUserId = async () => {
+  console.log("generating user id");
     const userCount = await User.countDocuments();
     return `2025${userCount + 1}`;
 };
@@ -14,8 +15,9 @@ const generateUserId = async () => {
 // 🟢 Create a new user
 router.post("/add-user", async (req, res) => {
     try {
-      const { name, email, college, regdNo, phone, accommodation } = req.body;
-  
+      let { name, email, college, regdNo, phone, accommodation } = req.body;
+      email=email.toLowerCase().trim();
+      console.log(name,email,college);
       // Check if email or registration number already exists
       const existingUser = await User.findOne({ $or: [{ email }, { regdNo }] });
   
@@ -27,6 +29,7 @@ router.post("/add-user", async (req, res) => {
         });
       }
       const userId = await generateUserId();
+      console.log(userId);
   
       // Create and save new user
       const newUser = new User({ name,userId, email, college, regdNo, phone, accommodation });
@@ -82,7 +85,8 @@ const generateOTP = () => {
 // Route to verify email and send OTP
 router.post("/verify-email", async (req, res) => {
   try {
-    const { email } = req.body;
+    let { email } = req.body;
+    email =email.toLowerCase().trim();
     const user = await User.findOne({ email });
 
     if (!user) return res.status(404).json({ message: "Email not registered" });
@@ -111,7 +115,8 @@ router.post("/verify-email", async (req, res) => {
 // Route to verify OTP
 router.post("/verify-otp", async (req, res) => {
   try {
-    const { email, otp } = req.body;
+    let { email, otp } = req.body;
+    email=email.toLowerCase().trim();
 
     // Find OTP record
     const storedOTP = await OTP.findOne({ email, otp });
@@ -152,8 +157,8 @@ router.post("/verify-otp", async (req, res) => {
 // API to update user details
 router.put("/update-user", async (req, res) => {
     try {
-        const { email, name, college, regdNo, phone, accommodation } = req.body;
-
+        let { email, name, college, regdNo, phone, accommodation } = req.body;
+        email=email.toLowerCase().trim();
         // Find and update user
         const updatedUser = await User.findOneAndUpdate(
             { email }, // Find user by email

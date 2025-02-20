@@ -1,5 +1,6 @@
 
 import React from 'react';
+import './index.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ShootingStarsAndStarsBackgroundDemo from './shooting-stars-and-stars-background-demo';
 import RegisterPage from './components/Home'; // Import the Register Page component
