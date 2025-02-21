@@ -38,7 +38,7 @@ router.post("/send-otp", async (req, res) => {
 
         // Store OTP in DB
 
-        await OTP.create({ email: leaderEmail, otp: otp, createdAt: new Date(), expiresAt });
+        await OTP.create({ email: leaderEmail, otp: otp, expiresAt });
         console.log("OTP stored in database.",otp);
 
         // Send email
