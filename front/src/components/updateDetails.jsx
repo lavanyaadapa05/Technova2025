@@ -44,13 +44,13 @@ const fetchTeamDetails = async () => {
         const response = await fetch(`https://technovabackend-wwcs.onrender.com/api/${eventId}/${email}`);
         const data = await response.json();
 
-        if (response.ok) {
-            setTeam(data.team);
-            console.log(data.team);
-        } else {
-            showToast(data.message || "Failed to fetch team details.", "error");
-            setTeam({ teamMates: [] }); // Default to empty team
-        }
+        if (response.ok && data.success) {
+          setTeam(data.team);
+          console.log(data.team);
+      } else {
+          showToast(data.message || "Team not found.", "error");
+          setTimeout(() => navigate(`/eventdetails/${eventId}`), 2000); // Redirect after showing toast
+      }
     } catch (error) {
         console.error("Error fetching team details:", error);
         showToast("Error fetching team details.", "error");
