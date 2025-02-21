@@ -28,18 +28,5 @@ const teamRoutes = require("./routes/teamRoutes");
 app.use("/api/users", userRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api", teamRoutes);
-
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "client/build")));
-
-    app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, "client/build", "index.html"));
-    });
-} else {
-    app.get("/", (req, res) => {
-        res.send("Server is running...");
-    });
-}
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
