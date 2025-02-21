@@ -57,7 +57,7 @@ router.post("/send-otp", async (req, res) => {
 // Verify OTP
 router.post("/verify-otp", async (req, res) => {
     let { leaderEmail, otp } = req.body;
-    leaderEmail=leaderEmail.toLowercase().trim();
+    leaderEmail=leaderEmail.toLowerCase().trim();
     console.log(leaderEmail,otp);
     try {
         const storedOTP = await OTP.findOne({ email: leaderEmail });
