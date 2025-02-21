@@ -23,7 +23,7 @@ const UpdateTeam = () => {
     e.preventDefault();
     showToast("Sending OTP...", "success");
     try {
-      const response = await fetch("https://technovabackend-wwcs.onrender.com/api/send-otp", {
+      const response = await fetch("https://technovabackend-wwcs.onrender.com/api/users/verify-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ leaderEmail: email }), // Fix key here
