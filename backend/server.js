@@ -28,7 +28,7 @@ const teamRoutes = require("./routes/teamRoutes");
 app.use("/api/users", userRoutes);
 app.use("/api/events", eventRoutes);
 app.use("/api", teamRoutes);
-const __dirname = path.resolve();
+
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "client/build")));
 
