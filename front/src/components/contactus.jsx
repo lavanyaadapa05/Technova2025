@@ -58,7 +58,7 @@ const Contact = () => {
         <h1 className="text-2xl font-bold"></h1>
       </nav>
       <div className="flex justify-center items-center py-16">
-        <h1 className="text-5xl text-white italic font-serif">Contact Us</h1>
+        <h1 className="text-5xl text-white">Contact Us</h1>
       </div>
       <div className="flex justify-center items-center p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

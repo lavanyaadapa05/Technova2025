@@ -47,7 +47,7 @@ const BranchEventSelector = () => {
             
 
             <div className="flex justify-center items-center py-20">
-                <h1 className="text-5xl text-white" style={{ fontFamily: "'italic', cursive" }}>
+                <h1 className="text-5xl text-white" >
                     Events
                 </h1>
             </div>

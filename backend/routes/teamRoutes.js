@@ -215,7 +215,7 @@ router.post("/add-member", async (req, res) => {
   
       // (Optional) Send email notification to the new member
       const mailOptions = {
-        from: "amughdham@gmail.com",
+        from: "22b01a0501@svecw.edu.in",
         to: newMember.email,
         subject: `Technova - ${event.Name} Registration`,
         text: `Hello ${newMember.name},\n\nYou have been added by ${leaderEmail} to the team "${team.teamName}" for the event "${event.Name}".\n\n${event.Desc}`
@@ -336,7 +336,7 @@ router.post("/create-team", async (req, res) => {
 
         
         const mailOptions = {
-            from: "amughdham@gmail.com",
+            from: "22b01a0501@svecw.edu.in",
             to: leader.email,
             subject: `Technova - ${event.Name} Registartion `,
             text: `Hello ${leader.name},\n\nYou have been Registered by  to  the team "${teamName}" for the "${event.Name}".\n ${event.Desc} `
@@ -345,7 +345,7 @@ router.post("/create-team", async (req, res) => {
         for (const member of members) {
             
             const mailOptions = {
-                from: "amughdham@gmail.com",
+                from: "22b01a0501@svecw.edu.in",
                 to: member.email,
                 subject: `Technova - ${event.Name} Registartion `,
                 text: `Hello ${member.name},\n\nYou have been Registered by ${leadName} to  the team "${teamName}" for the "${event.Name}".\n ${event.Desc} `

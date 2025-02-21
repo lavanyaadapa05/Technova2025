@@ -35,7 +35,7 @@ router.post("/add-user", async (req, res) => {
       const newUser = new User({ name,userId, email, college, regdNo, phone, accommodation });
       await newUser.save();
       await transporter.sendMail({
-        from: "amughdham@gmail.com",
+        from: "22b01a0501@svecw.edu.in",
         to: email,
         subject: "🚀 Welcome to TechNova! Your Journey Begins Now!",
         text: `Dear ${name},
@@ -99,7 +99,7 @@ router.post("/verify-email", async (req, res) => {
     // console.log(otp);
     // Send OTP via email
     await transporter.sendMail({
-      from: "amughdham@gmail.com",
+      from: "22b01a0501@svecw.edu.in",
       to: email,
       subject: "Your OTP for Verification",
       text: `Your OTP for verification is: ${otp}. It is valid for 5 minutes.`,
