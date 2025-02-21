@@ -49,7 +49,7 @@ const fetchTeamDetails = async () => {
           console.log(data.team);
       } else {
           showToast(data.message || "Team not found.", "error");
-          setTimeout(() => navigate(`/eventdetails/${eventId}`), 2000); // Redirect after showing toast
+          setTimeout(() => navigate(`/event/${eventId}`), 2000); // Redirect after showing toast
       }
     } catch (error) {
         console.error("Error fetching team details:", error);
