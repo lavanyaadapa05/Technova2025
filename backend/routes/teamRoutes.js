@@ -9,8 +9,8 @@ const sendEmail = require("../config/email");
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "amughdham@gmail.com",
-        pass: "uaweajcromkupfnr"
+        user: "22b01a0501@svecw.edu.in",
+        pass: "evtfwrzycaekjbig"
     }
 });
 const crypto = require("crypto");
