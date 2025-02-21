@@ -72,7 +72,7 @@ const handleOtpSubmit = async (e) => {
     console.log("Verifying OTP request:", requestBody);
 
     try {
-        const response = await fetch("https://technovabackend-wwcs.onrender.com/api/verify-otp", {
+        const response = await fetch("https://technovabackend-wwcs.onrender.com/api/users/verify-otp", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(requestBody),
