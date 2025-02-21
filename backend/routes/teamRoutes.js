@@ -257,7 +257,7 @@ router.post("/create-team", async (req, res) => {
         // Find the leader by email
         const leader = await User.findOne({ email: leadEmail });
         if (!leader) {
-            return res.status(404).json({ message: `${leadEmail} not found` });
+            return res.status(404).json({ message: `Users not found: ${leadEmail}` });
         }
 
         // Check if the leader has already registered for this event
@@ -277,7 +277,7 @@ router.post("/create-team", async (req, res) => {
             if (members.length !== memberEmails.length) {
                 const foundEmails = members.map(member => member.email);
                 const notFoundEmails = memberEmails.filter(email => !foundEmails.includes(email));
-                return res.status(400).json({ message:` Users not found: ${notFoundEmails.join(", ")}` });
+                return res.status(400).json({ message:`Users not found: ${notFoundEmails.join(", ")}` });
             }
 
             // Check if any member has already registered for this event
