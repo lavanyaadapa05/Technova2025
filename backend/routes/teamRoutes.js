@@ -77,7 +77,7 @@ router.post("/verify-otp", async (req, res) => {
 //fetch team details
 router.get("/:eventId/:leaderEmail", async (req, res) => {
     let { eventId, leaderEmail } = req.params;
-    leaderEmail=leaderEmail.toLowercase().trim();
+    leaderEmail=leaderEmail.toLowerCase().trim();
 
     try {
         console.log(`Fetching team for event ID: ${eventId}, Leader Email: ${leaderEmail}`);
@@ -94,7 +94,7 @@ router.get("/:eventId/:leaderEmail", async (req, res) => {
 });
 router.post("/remove-member", async (req, res) => {
     let { eventId, leaderEmail, memberEmail } = req.body;
-    leaderEmail=leaderEmail.toLowercase().trim();
+    leaderEmail=leaderEmail.toLowerCase().trim();
     memberEmail=memberEmail.toLowerCase().trim();
     try {
         console.log(`Removing member: ${memberEmail} from team (Event ID: ${eventId}, Leader: ${leaderEmail})`);
@@ -149,8 +149,8 @@ router.post("/remove-member", async (req, res) => {
 //add-member api
 router.post("/add-member", async (req, res) => {
     let { eventId, leaderEmail, newMemberName, newMemberEmail } = req.body;
-    leaderEmail=leaderEmail.toLowercase().trim();
-    newMemberEmail=newMemberEmail.toLowercase().trim();
+    leaderEmail=leaderEmail.toLowerCase().trim();
+    newMemberEmail=newMemberEmail.toLowerCase().trim();
     try {
       console.log(`Adding member: ${newMemberEmail} to team (Event ID: ${eventId}, Leader: ${leaderEmail})`);
         
