@@ -26,7 +26,7 @@ const UpdateTeam = () => {
       const response = await fetch("https://technovabackend-wwcs.onrender.com/api/users/verify-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ leaderEmail: email }), // Fix key here
+        body: JSON.stringify({ email }), // Fix key here
       });
       const data = await response.json();
       if (response.ok) {
