@@ -20,7 +20,6 @@ export default function RegisterPage() {
           alt="Event" 
           className="w-2/3 md:w-1/3 max-h-60 md:max-h-[600px] rounded-lg shadow-lg mx-auto md:mx-0"
         />
-
         {/* Right Content */}
         <div className="w-full md:w-2/3 px-4 text-center md:text-left">
           <TextGenerateEffect words={words} />
