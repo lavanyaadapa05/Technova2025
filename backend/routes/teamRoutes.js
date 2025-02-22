@@ -19,40 +19,38 @@ const crypto = require("crypto");
 const generateOTP = () => Math.floor(100000 + Math.random() * 900000).toString();
 
 // Store OTP with expiry
-router.post("/send-otp", async (req, res) => {
-    let { leaderEmail } = req.body;
-    leaderEmail=leaderEmail.toLowerCase().trim();
-    console.log("Received request:", req.body);
+router.post("/verify-email", async (req, res) => {
     try {
-        if (!leaderEmail) return res.status(400).json({ success: false, message: "Leader email is required." });
-
-        console.log("Generating OTP...");
-        const otp = generateOTP();
-        
-
-        console.log(`OTP generated: ${otp}`);
-
-        // Set OTP expiry time (e.g., 10 minutes from now)
-        const expiresAt = new Date();
-        expiresAt.setMinutes(expiresAt.getMinutes() + 10); // Expires in 10 minutes
-
-        // Store OTP in DB
-
-        await OTP.create({ email: leaderEmail, otp: otp, expiresAt });
-        console.log("OTP stored in database.",otp);
-
-        // Send email
-        console.log(`Sending OTP to ${leaderEmail}...`);
-        await sendEmail(leaderEmail, "Your OTP Code", `Your OTP for modifying your team: ${otp}`);
-        console.log("Email sent successfully.");
-
-        res.json({ success: true, message: "OTP sent successfully." });
+      let { email ,eventId } = req.body;
+      email =email.toLowerCase().trim();
+      const eventIdNumber = Number(eventId); 
+      const user = await User.findOne({ email });
+  
+      if (!user) return res.status(404).json({ message: "Email not registered" });
+      if (!user.eventsRegistered.includes(eventIdNumber)) {
+        return res.status(400).json({ message: `${email} is not registered for the event` });
+      }
+      // Generate OTP
+      const otp = generateOTP();
+  
+      // Save OTP in the database (You can also use Redis for temporary storage)
+      await OTP.create({ email, otp, expiresAt: Date.now() + 5 * 60 * 1000 }); // OTP expires in 5 minutes
+      // console.log(otp);
+      // Send OTP via email
+      await transporter.sendMail({
+        from: "22b01a0501@svecw.edu.in",
+        to: email,
+        subject: "Your OTP for Verification",
+        text: `Your OTP for verification is: ${otp}. It is valid for 5 minutes.`,
+      });
+  
+      res.status(200).json({ message: "OTP sent successfully" });
     } catch (error) {
-        console.error("Error in send-otp API:", error);
-        res.status(500).json({ success: false, message: "Failed to send OTP.", error: error.message });
+      console.error("Error verifying email:", error);
+      res.status(500).json({ message: "Internal server error" });
     }
-});
-
+  });
+  
 
 // Verify OTP
 router.post("/verify-otp", async (req, res) => {
