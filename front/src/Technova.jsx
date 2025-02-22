@@ -31,8 +31,8 @@ return (
     src="/logo.png" // Change this to your actual image path
     alt="College"
     className="college-image w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/3 max-w-md mx-auto shadow-md animate-pulse"
-    initial={{ opacity: 0, scale: 0.8 }}
-    animate={{ opacity: 1, scale: 1 }}
+    initial={{ opacity: 0, scale: 0.6 }}
+    animate={{ opacity: 2, scale: 1 }}
     transition={{ duration: 1, delay: 0.5 }}
     style={{
         filter: "drop-shadow(0 0 4px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 8px rgba(255, 255, 255, 0.6))",
