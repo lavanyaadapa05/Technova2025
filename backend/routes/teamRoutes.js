@@ -26,7 +26,7 @@ router.post("/verify-email", async (req, res) => {
       const eventIdNumber = Number(eventId); 
       const user = await User.findOne({ email });
   
-      if (!user) return res.status(404).json({ message: "Email not registered" });
+      if (!user) return res.status(404).json({ message: "Email not r" });
       if (!user.eventsRegistered.includes(eventIdNumber)) {
         return res.status(400).json({ message: `${email} is not registered for the event` });
       }
