@@ -20,7 +20,7 @@ return (
     transition={{ duration: 1, ease: "easeOut" }}
     className="college-title text-2xl sm:text-3xl md:text-4xl lg:text-4xl text-white font-bold text-center animate-pulse px-4"
     style={{
-        fontFamily: "'italic', cursive",
+        
         textShadow: "0 0 4px rgba(255, 255, 255, 0.8), 0 0 8px rgba(255, 255, 255, 0.6)",
     }}
 >
