@@ -62,13 +62,16 @@ return (
 
       {/* TECHNOVA Text Animation */}
       <motion.h1
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1, ease: "easeOut" }}
-          className="technova-text"
-      >
-          <CountdownTimer/>
-      </motion.h1>
+  initial={{ opacity: 0, y: 50 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 1, ease: "easeOut" }}
+  className="technova-text"
+>
+  <div className="scale-75 md:scale-90 lg:scale-100"> {/* Adjust scaling */}
+    <CountdownTimer />
+  </div>
+</motion.h1>
+
       </div>
   </div>
 );

@@ -13,7 +13,7 @@ const VideoIntro = () => {
       setTimeout(() => {
         navigate("/technova"); // Navigate after fade-out
       }, 1000); // 1s fade duration
-    }, 3000); // Adjust based on your video duration
+    }, 5000); // Adjust based on your video duration
 
     return () => clearTimeout(timer);
   }, [navigate]);
