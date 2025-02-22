@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const CountdownTimer = () => {
-  const eventName = "Shri Vishnu Engineering College For Women";
+  const eventName = "";
   const eventDate = "2025-03-06T00:00:00"; // Adjust date as needed
   const [timeRemaining, setTimeRemaining] = useState(0);
 

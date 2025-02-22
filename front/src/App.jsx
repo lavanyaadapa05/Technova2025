@@ -2,7 +2,7 @@
 import React from 'react';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ShootingStarsAndStarsBackgroundDemo from './shooting-stars-and-stars-background-demo';
+import Technova from './Technova';
 import RegisterPage from './components/Home'; // Import the Register Page component
 import AboutUs from './components/AboutUs';
 import Contact from './components/contactus';
@@ -14,6 +14,7 @@ import Registration from './components/Registration';
 import EventDetail from './components/eventDetails';
 import UpdateTeam from './components/updateDetails';
 import UpdateUser from './components/updateUser';
+import VideoIntro from './videointro';
 function App() {
   return (
     <Router>
@@ -21,7 +22,8 @@ function App() {
       <div className="min-h-screen bg-neutral-900 relative">
         
         <Routes>
-          <Route path="/" element={<ShootingStarsAndStarsBackgroundDemo />} />
+          <Route path="/" element={<VideoIntro />} />
+          <Route path="/technova" element={<Technova />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/contact-us" element={<Contact />} />

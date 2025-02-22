@@ -1,0 +1,113 @@
+
+  .video-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  video {
+    width: 100vw;
+    height: 120vh;
+    object-fit: cover;
+  }
+  
+  /* 📱 Small Screens: Adjust to Portrait Mode */
+  @media (max-width: 768px) {
+    .video {
+      width: 100vh; /* Switch width and height for portrait */
+      height: 50vw;
+      transform: rotate(90deg); /* Rotate for proper portrait fit */
+    }
+  }
+  
+  .technova-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+  
+  .technova-text {
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+  }
+ 
+  
+  video {
+    width: 100vw;  /* Make the video cover full width */
+    height: 100vh; /* Make the video cover full height */
+    object-fit: cover; /* Ensures the video fills the screen without distortion */
+  }
+  /* Full-screen Video */
+.video-container {
+    /* background-color: black; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: black; */
+    z-index: 999; /* Ensure it covers everything */
+    transition: opacity 1s ease-in-out;
+  }
+  
+  
+  /* Technova Page */
+  .technova-page {
+   
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding-top: 50px;
+    /* z-index:1000; */
+  }
+  
+  /* College Title */
+  .college-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    top: 10%;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* College Image */
+  .college-image {
+    width: 50%;
+    max-width: 600px;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  /* TECHNOVA Text */
+  .technova-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    margin-top: 20px;
+  }
+  
+
+.college-image
+{
+    margin-top: 50px;
+}
