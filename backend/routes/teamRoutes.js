@@ -83,7 +83,7 @@ router.get("/:eventId/:leaderEmail", async (req, res) => {
 
         const team = await Team.findOne({ Event_id: Number(eventId), leadEmail: leaderEmail });
         console.log(team);
-        if (!team) return res.status(404).json({ success: false, message: "Team not found." });
+        if (!team) return res.status(404).json({ success: false, message:`${leaderEmail} is not Lead of the Team` });
 
         res.json({ success: true, team });
     } catch (error) {
