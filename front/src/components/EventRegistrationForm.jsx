@@ -138,7 +138,7 @@ const EventRegistrationForm = ({ eventId, isSingleParticipant, Max_Participants 
                       <input 
                         type="text" 
                         className="w-1/2 px-3 py-2 rounded-lg bg-gray-800 text-white border border-white focus:ring-2 focus:ring-pink-500" 
-                        placeholder="Member Name" 
+                        placeholder="Name" 
                         value={member.name} 
                         onChange={(e) => handleMemberChange(index, "name", e.target.value)} 
                         required 
@@ -146,7 +146,7 @@ const EventRegistrationForm = ({ eventId, isSingleParticipant, Max_Participants 
                       <input 
                         type="email" 
                         className="w-1/2 px-3 py-2 rounded-lg bg-gray-800 text-white border border-white focus:ring-2 focus:ring-pink-500" 
-                        placeholder="Member Email" 
+                        placeholder="Email" 
                         value={member.email} 
                         onChange={(e) => handleMemberChange(index, "email", e.target.value)} 
                         required 
@@ -173,7 +173,13 @@ const EventRegistrationForm = ({ eventId, isSingleParticipant, Max_Participants 
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="bg-gray-900 text-white p-6 rounded-lg shadow-lg border border-blue-500 max-w-md w-full">
             <p className="text-center">{message}</p>
-            <button onClick={() => setMessage("")} className="mt-4 w-full bg-gray-700 py-2 rounded-lg border border-white hover:bg-gray-600">
+            <button onClick={() => {
+    setMessage("");
+    setTeamName("");
+    setLeaderName("");
+    setLeaderEmail("");
+    setMembers([]);
+  }}className="mt-4 w-full bg-gray-700 py-2 rounded-lg border border-white hover:bg-gray-600">
               Close
             </button>
           </div>
